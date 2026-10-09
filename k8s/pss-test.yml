@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pss-test
+  namespace: myapp
+spec:
+  containers:
+    - name: test
+      image: nginx:alpine

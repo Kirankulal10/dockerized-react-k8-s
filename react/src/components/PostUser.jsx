@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 
 const PostUser = () => {
-  
+
     const [user, setUser] = useState({
       name: '',
       age: '',
@@ -11,7 +11,7 @@ const PostUser = () => {
 
     const createUser = async () => {
       await axios
-      .post("http://localhost:8000/api/form", 
+      .post("/api/form",
       user,
       {
         headers: {
@@ -19,7 +19,7 @@ const PostUser = () => {
         }
       })
       .then((response) => {
-        setUser({      
+        setUser({
           name: '',
           age: '',
           email: '',
@@ -51,36 +51,36 @@ const PostUser = () => {
                   <div>
                       <div>
                           <label>Name</label>
-                          <input 
-                            type="text" 
+                          <input
+                            type="text"
                             value={user.name}
-                            onChange={(e) => onChangeForm(e)} 
-                            name="name" 
-                            id="name" 
-                            placeholder="Name" 
+                            onChange={(e) => onChangeForm(e)}
+                            name="name"
+                            id="name"
+                            placeholder="Name"
                           />
                       </div>
                       <div>
                           <label>Age</label>
-                          <input 
-                            type="text" 
+                          <input
+                            type="text"
                             value={user.age}
-                            onChange={(e) => onChangeForm(e)} 
-                            name="age" 
-                            id="age" 
-                            placeholder="Age" 
+                            onChange={(e) => onChangeForm(e)}
+                            name="age"
+                            id="age"
+                            placeholder="Age"
                           />
                       </div>
                   </div>
                   <div>
                       <div>
                           <label htmlFor="exampleInputEmail1">Email</label>
-                          <input 
-                            type="text" 
+                          <input
+                            type="text"
                             value={user.email}
-                            onChange={(e) => onChangeForm(e)} 
-                            name="email" id="email" 
-                            placeholder="Email" 
+                            onChange={(e) => onChangeForm(e)}
+                            name="email" id="email"
+                            placeholder="Email"
                           />
                       </div>
                   </div>
@@ -91,5 +91,5 @@ const PostUser = () => {
       </div>
       );
   };
-  
+
   export default PostUser;

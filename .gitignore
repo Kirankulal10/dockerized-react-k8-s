@@ -1,0 +1,36 @@
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
+**/dist/
+**/build/
+
+# Local database data
+data/
+**/data/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+
+# Kubernetes local secrets/configs
+kubeconfig
+
+# Local Kubernetes credentials
+k8s/postgres-secrets.yml
+
+# Local TLS private keys and certificates
+k8s/tls/tls.key
+k8s/tls/tls.crt
