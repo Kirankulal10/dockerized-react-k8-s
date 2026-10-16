@@ -1,3 +1,4 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -23,6 +24,12 @@ spec:
         app: frontend
 
     spec:
+      # Pod-level security settings
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+
+      # Prefer to schedule frontend replicas on different nodes
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -33,12 +40,12 @@ spec:
                   matchLabels:
                     app: frontend
 
-
       containers:
         - name: frontend
           image: myapp-frontend:2.0
           imagePullPolicy: IfNotPresent
 
+          # Container-level security settings
           securityContext:
             runAsNonRoot: true
             runAsUser: 101
